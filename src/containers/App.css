@@ -1,0 +1,42 @@
+
+*, 
+*::before , 
+*::after {
+     margin : 0 ; 
+     padding : 0 ; 
+     box-sizing: inherit ;
+}
+
+
+html { 
+    box-sizing: border-box;
+    font-family: Rubik , consolas;
+    font-size : 62.5% ; 
+    scroll-behavior: smooth;
+}
+
+.wrapper { 
+    width : 100vw ; 
+    height : 100% ; 
+    background : hsl(228, 33%, 97%); 
+
+}
+
+:root { 
+    --c-moderate-blue : hsl(238, 40%, 52%)  ; 
+    --c-soft-red: hsl(358, 79%, 66%) ; 
+    --c-light-grayish-blue :  hsl(239, 57%, 85%) ; 
+    --c-pale-red : hsl(357, 100%, 86%) ; 
+    --c-dark-blue : hsl(212, 24%, 26%) ; 
+    --c-grayish-blue : hsl(211, 10%, 45%); 
+    --c-light-gray : hsl(223, 19%, 93%) ; 
+    --c-very-light-gray : hsl(228, 33%, 97%) ; 
+    --c-white : hsl(0, 0%, 100%) ; 
+}
+
+  .btn  { 
+      outline : none ; 
+      border : none ; 
+      font-family: inherit ;
+
+  }

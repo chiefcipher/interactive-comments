@@ -1,0 +1,65 @@
+.Backdrop { 
+    width: 100vw ; 
+    height : 100vh ; 
+    position : fixed ; 
+    background : hsla(0, 0%, 0%, .7) ;
+    top : 0 ; 
+    left : 0 ; 
+    z-index : 3 ;  
+
+}      
+
+.Content-Box  { 
+    background : #fff; 
+    padding : 20px 30px ; 
+    border-radius: 10px ; 
+    max-width: 400px ;
+    position : fixed ; 
+    left : 50% ; 
+    top : 50% ; 
+    transform: translate(-50% , -50%);
+    z-index: 5; 
+
+}
+
+
+.Content-Box h1 { 
+    margin-bottom : 2rem  ; 
+    font-size : 2rem ;
+    color : var(--c-dark-blue)  ; 
+    font-weight: 500;
+}
+
+.Content-Box p { 
+    font-size : 1.5rem ; 
+    line-height: 25px ;
+    margin-bottom : 2rem ; 
+    color : var(--c-grayish-blue)
+}   
+
+
+
+.Buttons { 
+    width : 100% ; 
+    display: flex ; 
+    justify-content: space-between;
+}
+
+.Buttons button { 
+    padding : 10px 15px ;
+    text-transform : uppercase ; 
+    color : var(--c-very-light-gray) ; 
+    border-radius: 7px ; 
+    outline :none ; 
+    border : none ; 
+    font-family: inherit;
+    width : 46% 
+}
+
+.No { 
+    background-color: var(--c-grayish-blue);
+}
+.Yes { 
+    background-color: var(--c-soft-red);
+
+}

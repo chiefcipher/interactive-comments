@@ -1,0 +1,15 @@
+.edit { 
+    display: flex ;
+    align-items:  center ;
+    margin-left : 20px ;
+    cursor : pointer 
+
+}
+
+.image { 
+    margin-right : 5px 
+}
+
+.text { 
+    color : var(--c-moderate-blue)
+}

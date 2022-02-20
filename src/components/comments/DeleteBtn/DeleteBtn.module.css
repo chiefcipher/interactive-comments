@@ -1,0 +1,14 @@
+.Delete { 
+    display:  flex ;
+    align-items: center ;
+    cursor : pointer ; 
+}
+
+
+.icon { 
+    margin-right : 5px ;
+}
+
+.text { 
+    color : var(--c-soft-red ) 
+}
