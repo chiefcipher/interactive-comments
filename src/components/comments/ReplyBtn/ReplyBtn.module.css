@@ -1,0 +1,29 @@
+.reply { 
+    color : var(--c-moderate-blue) ; 
+    background : transparent ; 
+    display: flex ; 
+    align-items: center ;
+    cursor : pointer ; 
+    outline : none ; 
+    border : none ;
+    font-family: inherit ;
+
+    
+}
+
+.reply:hover .image path { 
+    fill : var(--c-light-grayish-blue)
+}
+
+.reply:hover .text { 
+    color : var(--c-light-grayish-blue)
+}
+.text { 
+    color : var(--c-moderate-blue) ; 
+    font-weight : 500 ; 
+    margin-left : 5px ; 
+    font-size : 1.5rem ;  
+
+}
+
+

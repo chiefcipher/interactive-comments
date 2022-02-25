@@ -5,6 +5,15 @@
 }
 
 
+.Delete:hover .icon path { 
+    fill : var(--c-pale-red)
+}
+
+
+.Delete:hover .text { 
+    color : var(--c-pale-red)
+}
+
 .icon { 
     margin-right : 5px ;
 }

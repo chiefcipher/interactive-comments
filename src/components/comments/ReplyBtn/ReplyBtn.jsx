@@ -1,11 +1,11 @@
 
 import React  from "react"
-import ReplyIcon from './icon-reply.svg'
-import "./ReplyBtn.css"
+import {ReactComponent as ReplyIcon}from './icon-reply.svg'
+import classes from "./ReplyBtn.module.css"
 const button = props => ( 
-    <button className="btn btn__reply" onClick={props.clicked} >
-        <img src={ReplyIcon} alt='Reply Icon' className="btn__reply--image"/> 
-        <span className="btn__reply--text">Reply</span>
+    <button className={classes.reply} onClick={props.clicked} >
+        <ReplyIcon className={classes.image}/> 
+        <span className={classes.text}>Reply</span>
     </button>
 )
 

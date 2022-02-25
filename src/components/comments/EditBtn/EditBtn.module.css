@@ -6,8 +6,19 @@
 
 }
 
+.edit:hover .image path { 
+    fill : var(--c-light-grayish-blue) ; 
+
+
+}
+
+.edit:hover .text { 
+    color : var(--c-light-grayish-blue)
+
+}
 .image { 
-    margin-right : 5px 
+    margin-right : 5px  ;
+ 
 }
 
 .text { 
