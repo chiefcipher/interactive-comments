@@ -72,7 +72,7 @@ const comment = props => {
                  
             <div className="comment__details">
                 <picture className="comment__image">
-                    <source media="(min-width : 600px)" srcSet={`${process.env.PUBLIC_URL}/${reply.user.image['png'].substring(2)}`} alt="User" /> 
+                    <source media="(min-width : 600px)" srcSet={`${process.env.PUBLIC_URL}/${reply.user.image['png'].substring(2)}`}  /> 
                     <img src={`${process.env.PUBLIC_URL}/${reply.user.image['webp'].substring(2)}`} alt="User" /> 
                 </picture> 
                 <div className="comment__name">{reply.user.username}</div>
