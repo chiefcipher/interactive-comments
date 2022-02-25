@@ -3,7 +3,8 @@ import Button from "./AddReduceBtn/AddReduceBtn"
 import ReplyBtn from "./ReplyBtn/ReplyBtn"
 import DeleteBtn from './DeleteBtn/DeleteBtn'
 import EditBtn from "./EditBtn/EditBtn";
-import "./comments.css"
+// import "./comments.css"
+import classes from './comments.module.css'
 import User from "../currentUser/currentUser";
 
 const comment = props => {
@@ -11,27 +12,27 @@ const comment = props => {
     const comments = 
     props.comments.map(comment => ( 
         <React.Fragment key={comment.id} >
-        <div className='comment'> 
+        <div className={classes.comment}> 
 
-            <div className='comment__counter'>
+            <div className={classes.counter}>
                 <Button vote={()=> props.vote(comment.id , 'comment', null , 'upvote')}> <img src={`${process.env.PUBLIC_URL}/images/icon-plus.svg`} alt="increase score" /> </Button>
-                    <span className="comment__counter--number"> 
+                    <span className={classes['counter--score']}> 
                     {comment.score}
                     </span> 
                 <Button vote={()=> props.vote(comment.id , 'comment' , null , 'downvote' )}> <img src={`${process.env.PUBLIC_URL}/images/icon-minus.svg`} alt="decrease score" />  </Button> 
             </div>
-            <div className="comment__details">
-                <picture className="comment__image">
+            <div className={classes.details}>
+                <picture className={classes.image}>
                     <source media="(min-width : 600px)" srcSet={`${process.env.PUBLIC_URL}/${comment.user.image['png'].substring(2)}`}  /> 
                     <img src={`${process.env.PUBLIC_URL}/${comment.user.image['webp'].substring(2)}`} alt="User" /> 
                 </picture> 
              
-                <div className="comment__name">{comment.user.username}</div>
-                {comment.user.username === props.user.username ? <div className="you"> you</div> : null  }
-                <div className="comment__time">{props.timeStampConverter(comment.createdAt)}</div>
+                <div className={classes.name}>{comment.user.username}</div>
+                {comment.user.username === props.user.username ? <div className={classes.you}> you</div> : null  }
+                <div className={classes.time}>{props.timeStampConverter(comment.createdAt)}</div>
             </div> 
             
-            <div className="comment__icons"> 
+            <div className={classes.icons}> 
             { 
                 comment.user.username === props.user.username ? 
                 <>
@@ -43,10 +44,10 @@ const comment = props => {
             }
              
             </div> 
-            <div className="comment__content" > {comment.content} </div>
+            <div className={classes.content} > {comment.content} </div>
             
          </div>
-         <div className='edit-block' 
+         <div className={classes['edit-block']}
                 style= {{
                     display :  (props.showEdit.commentID === comment.id && props.showEdit.show ) ? 'block' : 'none' }} > 
 
@@ -57,32 +58,32 @@ const comment = props => {
                     from='update'
                     value ={props.showEdit.data} /> : null }
          </div>
-         <div className='reply-block' >
+         <div className={classes['reply-block']} >
          { 
              comment.replies.map (reply => ( 
             <React.Fragment key={reply.id}>
-             <div className="comment reply"  >
-                <div className='comment__counter'>
+             <div className={[classes.comment , classes.reply].join(' ') }>
+                <div className={classes.counter}>
                 <Button vote={()=> props.vote(comment.id, 'reply' , reply.id , 'upvote')}> <img src={`${process.env.PUBLIC_URL}/images/icon-plus.svg`} alt="increase score" /> </Button>
-                    <span className="comment__counter--number"> 
+                    <span className={classes['counter--score']}> 
                     {reply.score}
                     </span> 
                 <Button vote={()=> props.vote(comment.id , 'reply' , reply.id , 'downvote')}> <img src={`${process.env.PUBLIC_URL}/images/icon-minus.svg`} alt="decrease score" />  </Button> 
                 </div>
                  
-            <div className="comment__details">
-                <picture className="comment__image">
+            <div className={classes.details}>
+                <picture className={classes.image}>
                     <source media="(min-width : 600px)" srcSet={`${process.env.PUBLIC_URL}/${reply.user.image['png'].substring(2)}`}  /> 
                     <img src={`${process.env.PUBLIC_URL}/${reply.user.image['webp'].substring(2)}`} alt="User" /> 
                 </picture> 
-                <div className="comment__name">{reply.user.username}</div>
+                <div className={classes.name}>{reply.user.username}</div>
 
                 { 
-                    reply.user.username === props.user.username ? <div className="you"> you</div> : null  
+                    reply.user.username === props.user.username ? <div className={classes.you}> you</div> : null  
                 }
-                <div className="comment__time">{props.timeStampConverter(reply.createdAt)}</div>
+                <div className={classes.time}>{props.timeStampConverter(reply.createdAt)}</div>
             </div> 
-            <div className="comment__icons">
+            <div className={classes.icons}>
              
             { 
                 reply.user.username === props.user.username ? 
@@ -97,8 +98,8 @@ const comment = props => {
             }
             
             </div> 
-            <div className="comment__content" > 
-            <span className="replying-to">@{reply.replyingTo} </span>            
+            <div className={classes.content} > 
+            <span className={classes.replyingTo}>@{reply.replyingTo} </span>            
             {reply.content} 
             </div>
 
@@ -106,7 +107,7 @@ const comment = props => {
 
 
              </div>
-             <div className='edit-block' 
+             <div className={classes['edit-block']} 
                 style= {{
                     display : (props.showEdit.replyId === reply.id && props.showEdit.show ) ? 'block' : 'none'  }} > 
 
@@ -123,7 +124,7 @@ const comment = props => {
          </div>
 
 
-         <div className="user-reply-box" style={{display : props.showReply === comment.id ? 'block' : 'none'}}>  
+         <div className={classes.replyBlock} style={{display : props.showReply === comment.id ? 'block' : 'none'}}>  
                 <User user={props.user} 
                     newComment={()=> props.addComment('reply' , comment.id )} 
                     changeInput={props.changeInput}
@@ -146,7 +147,7 @@ const comment = props => {
             /> 
     )
     return ( 
-        <main className="comment-container"> 
+        <main className={classes.container}> 
              {comments}
              {user}
         </main>

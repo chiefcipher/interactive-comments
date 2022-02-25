@@ -1,5 +1,5 @@
 
-.comment-container {
+.container {
     font-size: 1.6rem;
     width: 90%;
     max-width: 700px;
@@ -23,7 +23,7 @@
   }
 
   
-  .comment__counter {
+  .counter {
     grid-column: 1/2;
     grid-row: 1 / span 2;
     display: flex;
@@ -37,46 +37,46 @@
     align-self: center;
   }
   
-  .comment__counter--number {
+  .counter--score {
     font-weight: 500;
     margin: 1.4rem 0;
     color : var(--c-moderate-blue)
   }
-  .comment__details {
+  .details {
     grid-column: 2/3;
     grid-row: 1/2;
   
     display: flex;
     align-items: center;
   }
-  .comment__image {
+  .image {
     max-width: 3rem;
     max-height: 3rem;
   }
   
-  .comment__image > * {
+  .image > * {
     width: 100%;
     height: 100%;
   }
-  .comment__name {
+  .name {
     font-weight: 500;
     color: var(--c-dark-blue) ;
   }
   
-  .comment__time {
+  .time{
     color: var(--c-light-grayish-blue);
   }
   
-  .comment__name,
-  .comment__time {
+  .name,
+  .time{
     margin-left: 1.2rem;
   }
   
-  .comment__icons {
+  .icons {
     grid-column: 3/4;
     grid-row: 1 / span 2;
   }
-  .comment__content {
+  .content {
     grid-column: 2/span 2;
     grid-row: 2/3;
     color: var(--c-grayish-blue);
@@ -107,12 +107,12 @@
 
   }
 
-  .comment__icons { 
+  .icons { 
     display: flex ;
     align-items : flex-start
   }
 
-  .replying-to { 
+  .replyingTo { 
     color : var(--c-moderate-blue) ; 
     font-weight: 500 ;
   }
@@ -124,29 +124,29 @@
        grid-template-columns: 1fr 1fr ;
        
     }
-    .comment__details { 
+    .details { 
       grid-column : 1/-1 ; 
       grid-row : 1/2 ; 
     }
-    .comment__counter { 
+    .counter { 
       grid-column : 1 /2 ; 
       grid-row : 3/4 ;
     }
-    .comment__content { 
+    .content { 
       grid-column:  1/-1 ; 
       grid-row : 2/3 ;
       padding-right : 0 ;
       text-align: justify ;
       hyphens: auto;
     }
-    .comment__icons { 
+    .icons { 
       grid-column : 2/3 ; 
       grid-row : 3/4 ;
       display: flex ; 
       justify-content: right ;
     }
 
-    .comment__counter {
+    .counter {
       flex-direction: row ;
       align-items: center ;
       background-color: var(--c-light-gray) ;
@@ -156,13 +156,13 @@
 
 
 
-    .comment__counter--number {
+    .counter--score {
       font-weight: 500;
       margin : 0 2rem ; 
       color : var(--c-moderate-blue)
     }
     
-  .reply-block { 
+  .replyBlock { 
     padding-left : 2rem ; 
   }
   }

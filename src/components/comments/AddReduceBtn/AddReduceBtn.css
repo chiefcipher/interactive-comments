@@ -1,3 +1,13 @@
 .btn.add-decrease {
-    cursor : pointer    
+    cursor : pointer    ; 
+    
+    
+}
+
+
+@media ( max-width : 7000px ) {
+     .btn.add-decrease { 
+        display : flex ; 
+        align-content :  center;
+     }
 }
