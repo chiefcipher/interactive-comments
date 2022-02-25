@@ -28,7 +28,7 @@ const comment = props => {
              
                 <div className="comment__name">{comment.user.username}</div>
                 {comment.user.username === props.user.username ? <div className="you"> you</div> : null  }
-                <div className="comment__time">{comment.createdAt}</div>
+                <div className="comment__time">{props.timeStampConverter(comment.createdAt)}</div>
             </div> 
             
             <div className="comment__icons"> 
@@ -51,8 +51,7 @@ const comment = props => {
                     display :  (props.showEdit.commentID === comment.id && props.showEdit.show ) ? 'block' : 'none' }} > 
 
             {comment.user.username === props.user.username ? 
-                <User user={props.user} 
-                    newComment={props.updateComment} 
+                <User user={props.user} newComment={props.updateComment} 
                     changeInput={props.changeInput}
                     type='UPDATE' 
                     from='update'
@@ -61,7 +60,8 @@ const comment = props => {
          <div className='reply-block' >
          { 
              comment.replies.map (reply => ( 
-             <div className="comment reply" key={reply.id} >
+            <React.Fragment key={reply.id}>
+             <div className="comment reply"  >
                 <div className='comment__counter'>
                 <Button vote={()=> props.vote(comment.id, 'reply' , reply.id , 'upvote')}> <img src={`${process.env.PUBLIC_URL}/images/icon-plus.svg`} alt="increase score" /> </Button>
                     <span className="comment__counter--number"> 
@@ -69,7 +69,8 @@ const comment = props => {
                     </span> 
                 <Button vote={()=> props.vote(comment.id , 'reply' , reply.id , 'downvote')}> <img src={`${process.env.PUBLIC_URL}/images/icon-minus.svg`} alt="decrease score" />  </Button> 
                 </div>
-                 <div className="comment__details">
+                 
+            <div className="comment__details">
                 <picture className="comment__image">
                     <source media="(min-width : 600px)" srcSet={`${process.env.PUBLIC_URL}/${reply.user.image['png'].substring(2)}`} alt="User" /> 
                     <img src={`${process.env.PUBLIC_URL}/${reply.user.image['webp'].substring(2)}`} alt="User" /> 
@@ -79,7 +80,7 @@ const comment = props => {
                 { 
                     reply.user.username === props.user.username ? <div className="you"> you</div> : null  
                 }
-                <div className="comment__time">{reply.createdAt}</div>
+                <div className="comment__time">{props.timeStampConverter(reply.createdAt)}</div>
             </div> 
             <div className="comment__icons">
              
@@ -87,7 +88,8 @@ const comment = props => {
                 reply.user.username === props.user.username ? 
                 <>
                 <DeleteBtn  clicked={()=> props.modalHandler('reply' , reply.id)} /> 
-                <EditBtn clicked={props.editHandler} /> 
+                <EditBtn clicked={()=> props.editHandler ('reply', comment.id , reply.id)}/> 
+
                 </>
                 : 
                 <ReplyBtn clicked={()=> props.clickReplyBtn(comment.id , reply.id )} /> 
@@ -99,8 +101,23 @@ const comment = props => {
             <span className="replying-to">@{reply.replyingTo} </span>            
             {reply.content} 
             </div>
-         </div>
 
+           
+
+
+             </div>
+             <div className='edit-block' 
+                style= {{
+                    display : (props.showEdit.replyId === reply.id && props.showEdit.show ) ? 'block' : 'none'  }} > 
+
+            {reply.user.username === props.user.username ? 
+                <User user={props.user} newComment={props.updateComment} 
+                    changeInput={props.changeInput}
+                    type='UPDATE' 
+                    from='update'
+                    value ={props.showEdit.data} /> : null }
+            </div> 
+             </React.Fragment>
              ))
          }
          </div>
@@ -111,7 +128,8 @@ const comment = props => {
                     newComment={()=> props.addComment('reply' , comment.id )} 
                     changeInput={props.changeInput}
                     type='REPLY' 
-                    value ={props.value}/> 
+                    from='reply'
+                    value ={props.replyValue}/> 
          </div>
 
          </React.Fragment>
@@ -123,7 +141,8 @@ const comment = props => {
             newComment={()=> props.addComment('comment' , null )}  
             changeInput={props.changeInput} 
             type='SEND' 
-            value ={props.value}
+            from='comment'
+            value ={props.commentValue}
             /> 
     )
     return ( 
