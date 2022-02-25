@@ -6,7 +6,7 @@ const user = props => {
     return (
     <div className="user"> 
         <picture className="user__image" > 
-            <source srcSet={`${process.env.PUBLIC_URL}/${props.user.image['png'].substring(2)}`} media="(min-width : 600px) " alt='USER PICTURE' /> 
+            <source srcSet={`${process.env.PUBLIC_URL}/${props.user.image['png'].substring(2)}`} media="(min-width : 600px) "  /> 
             <img src={`${process.env.PUBLIC_URL}/${props.user.image['webp'].substring(2)}`} alt='USER'  />
 
         </picture>
