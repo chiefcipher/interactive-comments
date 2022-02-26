@@ -164,8 +164,13 @@
       color : var(--c-moderate-blue)
     }
     
-  .replyBlock { 
-    padding-left : 2rem ; 
+  .reply-user-container{ 
+    padding-left : 1rem ; 
+  }
+
+  .reply-block { 
+      padding-left: 1.5rem ; 
+
   }
 
   }

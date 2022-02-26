@@ -124,7 +124,7 @@ const comment = props => {
          </div>
 
 
-         <div className={classes.replyBlock} style={{display : props.showReply === comment.id ? 'block' : 'none'}}>  
+         <div className={classes['reply-user-container']} style={{display : props.showReply === comment.id ? 'block' : 'none'}}>  
                 <User user={props.user} 
                     newComment={()=> props.addComment('reply' , comment.id )} 
                     changeInput={props.changeInput}
